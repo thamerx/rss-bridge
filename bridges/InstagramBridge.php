@@ -133,21 +133,21 @@ class InstagramBridge extends BridgeAbstract {
 				case 'GraphSidecar':
 					$data = $this->getInstagramSidecarData($item['uri'], $item['title']);
 					$item['content'] = $data[0];
-					$item['enclosures'] = $data[1];
+
 					break;
 				case 'GraphImage':
 					$item['content'] = '<a href="' . htmlentities($item['uri']) . '" target="_blank">';
 					$item['content'] .= '<img src="' . htmlentities($mediaURI) . '" alt="' . $item['title'] . '" />';
 					$item['content'] .= '</a><br><br>' . nl2br(htmlentities($textContent));
-					$item['enclosures'] = array($mediaURI);
+
 					break;
 				case 'GraphVideo':
 					$data = $this->getInstagramVideoData($item['uri'], $mediaURI);
 					$item['content'] = $data[0];
 					if($directLink) {
-						$item['enclosures'] = $data[1];
+						
 					} else {
-						$item['enclosures'] = array($mediaURI);
+
 					}
 					$item['thumbnail'] = $mediaURI;
 					break;

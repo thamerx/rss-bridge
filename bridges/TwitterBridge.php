@@ -306,7 +306,7 @@ EOD
 				}
 			}
 			// generate the title
-			$item['title'] = strip_tags($cleanedTweet);
+			$item['title'] = ""; //strip_tags($cleanedTweet);
 
 			// Add avatar
 			$picture_html = '';
@@ -334,12 +334,7 @@ EOD;
 						$item['enclosures'][] = $image;
 
 						$media_html .= <<<EOD
-<a href="{$image}">
-<img
-	style="align:top; max-width:558px; border:1px solid black;"
-	referrerpolicy="no-referrer"
-	src="{$display_image}" />
-</a>
+
 EOD;
 						break;
 					case 'video':
@@ -358,8 +353,8 @@ EOD;
 							}
 							if(!is_null($video)) {
 								// add enclosures
-								$item['enclosures'][] = $video;
-								$item['enclosures'][] = $poster;
+								$item['enclosures'][] = "";
+								$item['enclosures'][] = "";
 
 								$media_html .= <<<EOD
 <a href="{$link}">Video</a>
